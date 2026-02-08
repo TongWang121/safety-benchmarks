@@ -5,6 +5,7 @@ ASB 单样本测试脚本 - 简化版
 """
 
 import os
+import copy
 import sys
 from pathlib import Path
 
@@ -69,7 +70,7 @@ from eval_benchmarks.asb import asb
 task = asb(
     agent_names=["financial_analyst_agent"],
     attack_type="dpi",
-    limit=5,  # 测试 5 个样本
+    limit=1,  # 测试 5 个样本
     shuffle=False
 )
 
