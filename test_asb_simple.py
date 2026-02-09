@@ -12,6 +12,8 @@ from pathlib import Path
 # 修复 Windows 上的 GBK 编码问题
 # 方法1: 设置环境变量（推荐）
 os.environ['PYTHONIOENCODING'] = 'utf-8'
+import _locale
+_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
 
 # 方法2: 修复 importlib.metadata 的编码读取
 if sys.platform == 'win32':
