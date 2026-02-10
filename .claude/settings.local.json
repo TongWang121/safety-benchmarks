@@ -18,5 +18,6 @@
       "Bash(python3:*)",
       "Bash(\".venvs/asb/Scripts/python.exe\":*)"
     ]
-  }
+  },
+  "outputStyle": "default"
 }
