@@ -69,7 +69,7 @@ from eval_benchmarks.asb import asb
 
 task = asb(
     agent_names=["financial_analyst_agent"],
-    attack_type="opi",
+    attack_type="dpi",
     limit=1,  # 测试 5 个样本
     shuffle=False
 )
