@@ -9,8 +9,7 @@ import copy
 import sys
 from pathlib import Path
 
-# 修复 Windows 上的 GBK 编码问题
-# 方法1: 设置环境变量（推荐）
+
 os.environ['PYTHONIOENCODING'] = 'utf-8'
 import _locale
 _locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
@@ -25,7 +24,7 @@ if sys.platform == 'win32':
             def _patched_read(self, filename, *args, **kwargs):
                 result = _original_read(self, filename, *args, **kwargs)
                 if isinstance(result, bytes):
-                    # 尝试 UTF-8，失败则用 GBK 并忽略错误
+                  
                     try:
                         return result.decode('utf-8')
                     except UnicodeDecodeError:
@@ -37,7 +36,7 @@ if sys.platform == 'win32':
         print(f"编码修复失败: {e}")
 
 # 设置工作目录
-os.chdir(Path(__file__).parent / "safety-benchmarks")
+os.chdir(Path(__file__).parent .parent/ "safety-benchmarks")
 # 将 benchmarks 目录加入搜索路径，这样才能找到 eval_benchmarks
 benchmarks_path = os.path.join(os.getcwd(), "benchmarks")
 if benchmarks_path not in sys.path:
@@ -72,7 +71,7 @@ from eval_benchmarks.asb import asb
 task = asb(
     agent_names=["financial_analyst_agent"],
     attack_type="dpi",
-    limit=5,  # 测试 5 个样本
+    limit=1,  # 测试 5 个样本
     shuffle=False
 )
 
