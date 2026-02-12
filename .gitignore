@@ -65,5 +65,6 @@ token_stats_*.py
 
 # Source data (kept locally but not tracked)
 ASB_SOURCE_DATA/
+safety-benchmarks
 
 third_party/
